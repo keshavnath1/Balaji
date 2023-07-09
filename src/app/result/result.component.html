@@ -1,0 +1,20 @@
+<div class="row">
+  <ng-container *ngIf="apiResponse['is_day'] == '0'; else elseTemplate1">
+    <div class="col-12">
+      <div class="alert alert-danger" role="alert">
+        {{ apiResponse['Error'] }}
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #elseTemplate1>
+    <div class="col-3">
+      <div class="card card-margin">
+        <div class="card-body">
+          <h5 class="card-title">{{ apiResponse['temperature'] }}</h5>
+          <p class="card-text">Year: {{ apiResponse['time'] | date }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
